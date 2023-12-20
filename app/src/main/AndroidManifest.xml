@@ -19,8 +19,9 @@
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".Main3Activity"
-            android:exported="false" />
+            android:name=".MainActivity2"
+            android:exported="false"
+            tools:ignore="DuplicateActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

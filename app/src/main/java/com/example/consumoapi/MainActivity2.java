@@ -2,8 +2,12 @@ package com.example.consumoapi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputEditText;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,16 +32,16 @@ public class MainActivity2 extends AppCompatActivity
                 datos, MainActivity2.this, MainActivity2.this);
         ws.execute("GET","Public-Merchant-Id","84e1d0de1fbf437e9779fd6a52a9ca18");
         //Localizar los controles
-        TextView txtlista = (TextView)findViewById(R.id.txtlista);
+        TextView txtbienvenida = (TextView)findViewById(R.id.txtbienvenida);
 //Recuperamos la información pasada en el intent
         Bundle bundle = this.getIntent().getExtras();
 //Construimos el mensaje a mostrar
-        txtlista.setText("Hola!, Bienvenido \n " +
-                bundle.getString("NOMBRE"));
+        txtbienvenida.setText("Hola!, Bienvenido \n " +
+                bundle.getString("Usuario"));
 
     }
     public void processFinish(String result) throws JSONException {
-        TextView txtBancos = (TextView)findViewById(R.id.txtlista);
+        TextView txtBanco = (TextView)findViewById(R.id.txtlista);
         String lstBancos="";
         JSONArray JSONlista = new JSONArray(result);
         for(int i=0; i< JSONlista.length();i++){
@@ -45,6 +49,6 @@ public class MainActivity2 extends AppCompatActivity
             lstBancos = lstBancos + "\n" +
                     banco.getString("name").toString();
         }
-        txtBancos.setText("Respuesta WS Lista de Bancos" + lstBancos);
+        txtBanco.setText("Respuesta WS Lista de Bancos" + lstBancos);
     }
 }
